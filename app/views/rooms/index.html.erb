@@ -1,0 +1,83 @@
+<% provide(:title, 'Räume') %>
+<h1>Räume ( <%= @rooms.count %> )</h1>
+
+<% content_for :search do %>
+<%= search_form_for @q, url: suche_rooms_path, method: :post do |f| %>
+<h2>Raumsuche</h2>
+<div id="search_container">
+  <div class="center_col" id="simple_search">
+    <%= f.label :name_or_beschreibung_or_strasse, 'Raumname oder Beschreibung enthält' %>
+    <%= f.text_field :name_or_beschreibung_or_strasse_cont, placeholder: 'Stichwort' %>
+    <%# f.label :strasse, 'Strasse enthält' %>
+    <%# f.text_field :strasse_cont, placeholder: 'Strasse' %>
+    <%= f.label 'Grösse mind. (m²)' %>
+    <%= f.text_field :groesse_gteq, placeholder: 'Grösse von' %>
+    <%# f.label 'Grösse max. (m²)' %>
+    <%# f.text_field :groesse_lteq, placeholder: 'Grösse bis' %>
+    <%= f.label :pers_anzahl, 'Anzahl Personen (mind.)' %>
+    <%= f.text_field :pers_anzahl_gteq, placeholder: 'Personenanzahl von' %>
+  </div>
+
+  <div class="right_col" id="extended_search" style="text-align:left;">
+  
+    <div class="subheader">Lage</div>
+<table class="table borderless">
+<tr><td><%= f.label :lage_eingang, 'Eigener Eingang' %></td><td><%= f.check_box :lage_eingang_true, include_hidden: false %></td>
+<td class="searchdesc"><%= f.label :lage_garten, 'mit Zugang zu Garten oder Park'%></td><td><%= f.check_box :lage_garten_true, include_hidden: false %></td></tr>
+<tr><td><%= f.label :lage_mvv, 'Öffentlich erreichbar' %></td><td><%= f.check_box :lage_mvv_true, include_hidden: false %></td>
+<td class="searchdesc"><%= f.label :lage_parkplatz, 'Parkplatzfreundlich' %></td><td><%= f.check_box :lage_parkplatz_true, include_hidden: false %></td></tr>
+</table>
+
+    <div class="subheader">Raumausstattung</div>
+<table border="0" class="searchtable">
+<tr><td><%= f.label :ausstattung_dunkel, 'Abdunklung möglich' %></td><td><%= f.check_box :ausstattung_dunkel_true, include_hidden: false %></td>
+<td class="searchdesc"><%= f.label :ausstattung_buehne, 'mit Bühne' %></td><td><%= f.check_box :ausstattung_buehne_true, include_hidden: false %></td></tr>
+<tr><td><%= f.label :ausstattung_klavier, 'mit Klavier' %></td><td><%= f.check_box :ausstattung_klavier_true, include_hidden: false %></td>
+<td class="searchdesc"><%= f.label :moebel_entfernbar, 'Stühle / Tische entfernbar' %></td><td><%= f.check_box :moebel_entfernbar_true, include_hidden: false %></td></tr>
+</table>
+
+    <div class="subheader">Technische Ausstattung</div>
+<table border="0" class="searchtable">
+<tr><td><%= f.label :technik_disko, 'mit Diskoanlage' %></td><td><%= f.check_box :technik_disko_true, include_hidden: false %></td>
+<td class="searchdesc"><%= f.label :technik_mikro, 'Mikrofon verfügbar' %></td><td><%= f.check_box :technik_mikro_true, include_hidden: false %></td></tr>
+<tr><td><%= f.label :technik_projektion, 'mit Projektionsmöglichkeit / Beamer' %></td><td><%= f.check_box :technik_projektion_true, include_hidden: false %></td>
+<td class="searchdesc">    <%= f.label :technik_wlan, 'Wlan verfügbar' %></td><td><%= f.check_box :technik_wlan_true, include_hidden: false %></td></tr>
+</table>
+ 
+    <div class="subheader">Versorgungsmöglichkeiten</div>
+<table border="0" class="searchtable">
+<tr><td><%= f.label :verpflegung_catering, 'Catering verfügbar' %></td><td><%= f.check_box :verpflegung_catering_true, include_hidden: false %></td>
+<td class="searchdesc"><%= f.label :verpflegung_gastro, 'Gastronomie in der Nähe' %></td><td><%= f.check_box :verpflegung_gastro_true, include_hidden: false %></td></tr>
+<tr><td><%= f.label :verpflegung_selbst, 'Selbstversorgung (Küche)' %></td><td><%= f.check_box :verpflegung_selbst_true, include_hidden: false %></td>
+<td class="searchdesc"><%= f.label :verpflegung_teekueche, 'mit Teeküche' %></td><td><%= f.check_box :verpflegung_teekueche_true, include_hidden: false %></td></tr>
+</table>
+
+    <div class="subheader">Zielgruppe</div>
+<table border="0" class="searchtable">
+<tr><td><%= f.label :zielgruppe_barrierefrei, 'Barrierefrei' %></td><td><%= f.check_box :zielgruppe_barrierefrei_true, include_hidden: false %></td>
+<td class="searchdesc"><%= f.label :zielgruppe_kinder, 'Kinderfreundlich' %></td><td><%= f.check_box :zielgruppe_kinder_true, include_hidden: false %></td></tr>
+<tr><td><%= f.label :zielgruppe_party, 'Partytauglich' %></td><td><%= f.check_box :zielgruppe_party_true, include_hidden: false %></td>
+<td class="searchdesc"><%= f.label :zielgruppe_seminar, 'Seminargeeignet' %></td><td><%= f.check_box :zielgruppe_seminar_true, include_hidden: false %></td></tr>
+</table>
+
+  </div>  <!-- right_col -->
+  <div id="extended_search_link" onclick="toggle_extended_search();">Erweiterte Suche</div>
+</div>
+ 
+<h2><%= f.submit 'Suchen', class: 'btn btn-primary', id: 'rooms_search_button' %></h2>
+<% end %>  <!-- search_form_for -->
+
+  <div style="clear:both;"></div>
+<!--
+  <h4>Sortiere Räume nach:</h4>
+  <%= sort_link @q, :name, "Raumname" %> |
+  <%= sort_link @q, :strasse, "Strasse" %> |
+  <%= sort_link @q, :groesse, "Grösse" %>
+-->
+<% end %>
+
+  <div id"rooms_list">
+  <ul class="rooms"><%= render @rooms %></ul>
+  </div>
+  <div style="clear:both;"><%= will_paginate %></div>
+

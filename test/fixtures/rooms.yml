@@ -1,0 +1,195 @@
+most_recent:
+  name: 'veranstaltungsraum'
+  strasse: 'strasse'
+  nummer: 1
+  plz: 81829
+  ort: 'münchen'
+  groesse: 1
+  pers_anzahl: 5
+  preis: "preis"
+  beschreibung: "beschreibung"
+  technik_wlan: true
+  technik_mikro: true
+  created_at: "2015-10-30 23:59:59"  # soll als letzter eintrag stehen (aber wegen scope als @user.rooms.first)
+  user: test
+
+pre_recent:
+  name: 'medienraum'
+  strasse: 'strasse'
+  nummer: '1'
+  plz: 81829
+  ort: 'münchen'
+  groesse: 1
+  pers_anzahl: 1
+  preis: "preis"
+  beschreibung: "beschreibung"
+  anbieter: 'anbieter'
+  kontakt_name: 'name'
+  kontakt_email: 'email'
+  kontakt_telefon: 'telefon'
+  mrbs_link: 'link'
+  weblink: 'link'
+  lage_eingang: true
+  lage_garten: true
+  lage_mvv: true
+  lage_parkplatz: true
+  anm_lage: 'anmerkung'
+  ausstattung_buehne: true
+  ausstattung_dunkel: true
+  ausstattung_klavier: true
+  moebel_entfernbar: true
+  anzahl_stuehle: 1
+  anzahl_tische: 1
+  anm_ausstattung: 'anmerkung'
+  technik_disko: true
+  technik_mikro: true
+  technik_projektion: true
+  technik_wlan: true
+  anm_technik: 'anmerkung'
+  verpflegung_catering: true
+  verpflegung_gastro: true
+  verpflegung_selbst: true
+  verpflegung_teekueche: true
+  anm_verpflegung: 'anmerkung'
+  zielgruppe_barrierefrei: true
+  zielgruppe_kinder: true
+  zielgruppe_party: true
+  zielgruppe_seminar: true
+  anm_zielgruppe: 'anmerkung'
+  bestuhlungsplan: 'plan'
+  grundriss: 'grundriss'
+  nutzungsvertrag: 'vertrag'
+  anm_dokumente: 'anmerkung'
+  picture: 'picture'
+  anm_bilder: 'anmerkung'
+  created_at: "2015-10-01 23:59:59"
+  user: test
+
+recent:
+  name: 'jugendraum'
+  strasse: 'strasse'
+  nummer: '1'
+  plz: 81829
+  ort: 'münchen'
+  groesse: 1
+  pers_anzahl: 5
+  preis: "preis"
+  beschreibung: "beschreibung"
+  technik_wlan: false
+  technik_mikro: false
+  created_at: "2015-09-01 23:59:59"
+  user: test
+
+<% 30.times do |n| %>
+room_<%= n %>:
+  name: 'name'
+  strasse: 'strasse'
+  nummer: '1'
+  plz: 81829
+  ort: 'münchen'
+  groesse: 1
+  pers_anzahl: 5
+  anbieter: "ich"
+  preis: "preis"
+  beschreibung: "beschreibung"
+  kontakt_name: "ich"
+  kontakt_email: "deuiarn@de.de"
+  kontakt_telefon: "daurean"
+  created_at: "2015-08-15 20:53:32"
+  user: test
+<% end %>
+
+orange:
+  name: 'name 1'
+  strasse: 'strasse 1'
+  nummer: '1'
+  plz: 81829
+  ort: 'münchen'
+  groesse: 9
+  pers_anzahl: 9
+  anbieter: "ich"
+  preis: '9'
+  kontakt_name: "ich"
+  kontakt_email: "deuiarn@de.de"
+  kontakt_telefon: "daurean"
+  beschreibung: "beschreibung 9"
+  created_at: "2013-08-15 20:53:32"
+  user: test
+
+tau_manifesto:
+  name: 'name 2'
+  strasse: 'strasse 2'
+  nummer: '2'
+  plz: 81829
+  ort: 'münchen'
+  groesse: 19
+  pers_anzahl: 19
+  preis: '19'
+  beschreibung: "beschreibung 2"
+  created_at: "2015-06-15 20:53:32"
+  user: test
+
+cat_video:
+  name: 'name 3'
+  strasse: 'strasse 3'
+  nummer: '3'
+  plz: 81829
+  ort: 'münchen'
+  groesse: 29
+  pers_anzahl: 29
+  preis: '29'
+  beschreibung: "beschreibung 3"
+  created_at: "2011-06-15 20:53:32"
+  user: test
+
+ants:
+  name: 'name 4'
+  strasse: 'strasse 4'
+  nummer: '4'
+  plz: 81829
+  ort: 'münchen'
+  groesse: 39
+  pers_anzahl: 39
+  preis: '39'
+  beschreibung: "beschreibung 4"
+  created_at: "2015-08-15 20:53:32"
+  user: archer
+
+zone:
+  name: 'name 5'
+  strasse: 'strasse 5'
+  nummer: '5'
+  plz: 81829
+  ort: 'münchen'
+  groesse: 49
+  pers_anzahl: 49
+  preis: '49'
+  beschreibung: "beschreibung 5"
+  created_at: "2015-08-15 20:53:32"
+  user: archer
+
+tone:
+  name: 'name 6'
+  strasse: 'strasse 6'
+  nummer: '6'
+  plz: 81829
+  ort: 'münchen'
+  groesse: 59
+  pers_anzahl: 59
+  preis: '59'
+  beschreibung: "beschreibung 59"
+  created_at: "2015-08-15 20:53:32"
+  user: lana
+
+van:
+  name: 'name 7'
+  strasse: 'strasse 7'
+  nummer: '7'
+  plz: 81829
+  ort: 'münchen'
+  groesse: 69
+  pers_anzahl: 69
+  preis: '69'
+  beschreibung: "beschreibung 7"
+  created_at: "2015-08-14 20:53:32"
+  user: lana

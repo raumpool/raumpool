@@ -1,0 +1,40 @@
+<% if logged_in? %>
+  <div class="row">
+    <aside class="col-md-4">
+      <section class="user_info">
+        <%= render 'shared/user_info' %>
+      </section>
+      <section class="room_form">
+        <%= render 'shared/room_form' %>
+      </section>
+    </aside>
+    <div class="col-md-8">
+      <h3>Meine Räume <span>( <%= pluralize( current_user.rooms.count,'') %>)</span></h3>
+      <%= render 'shared/feed' %>
+    </div>
+  </div>
+<% else %>
+  <div class="center jumbotron">
+
+<%# link_to image_tag( 'raumpool_logo.jpg', alt: 'Logo Raumpool' ), rooms_path %>
+<%= link_to image_tag( 'veranstaltungsraum.jpg', alt: 'Raumbild', width: 250 ), rooms_path %>
+<%# link_to image_tag( 'veranstaltungsraum.jpg', alt: 'Raumbild', width: 250 ), root_path %>
+
+<h1>Raumpool Messestadt</h1>
+
+
+<p>
+Hier können Sie Räume in der Messestadt München für diverse Zwecke finden oder anbieten:<br>
+Für Feste, Treffen und Seminare, Aufführungen oder Kurse,<br>
+Zum Proben von Musik und Tanz,<br>
+Zur Kinder- und Hausaufgabenbetreuung,<br>
+Für Malerei und Kreatives<br>
+und vieles mehr
+<%= link_to '…', rooms_path %><br><br>
+<%# link_to '…', root_path %>
+<small>gefördert von der</small> <%= image_tag( 'munchen_logo.png', alt: 'Landeshauptstadt München', width: 100 ) %>
+</p>
+
+
+  </div>
+<% end %>

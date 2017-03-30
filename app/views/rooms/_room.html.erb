@@ -1,0 +1,31 @@
+<li id="room-<%= room.id %>">
+
+  <%# param 1: Text/Anzeige, param 2: Link-Url %> 
+  <%= link_to room_gravatar_for(room, size: 50), room %>
+  <span class="fett"><%= link_to room.name, room %></span>
+  <span>(<%= room.groesse %> m²)</span>
+  <span><% if room.anbieter %>(<%= room.anbieter %>)<% end %></span>
+  <span><%= room.strasse %></span>
+  <span><%= room.nummer %></span>,
+  <span><%= room.plz %></span>
+  <span><%= room.ort %></span>,
+  <span>Tel. <%= room.kontakt_telefon %></span>,
+  <span><%= room.kontakt_email %></span>
+
+  
+  <% if room.beschreibung %>
+  <div class="beschreibung">
+    <%= truncate( room.beschreibung, :length => 80 ) %>
+    <%# image_tag room.picture.url if room.picture? %>
+  </div>
+  <% end %>
+ 
+  <span class="timestamp">
+    Erstellt <%= time_ago_in_words(room.created_at) %>.
+    <% if current_user?(room.user) %>
+      <%= link_to "löschen", room, method: :delete, data: { confirm: "Sicher?" } %>
+      | <%= link_to "editieren", room, method: :edit %>
+    <% end %>
+  </span>
+
+</li>

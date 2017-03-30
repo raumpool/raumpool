@@ -1,0 +1,7 @@
+<% provide(:title, 'Räume') %>
+<h1>Räume ( <%= @rooms.count %> )</h1>
+
+<div id"rooms_list">
+	<ul class="rooms"><%= render @rooms %></ul>
+</div>
+<div style="clear:both;"><%= will_paginate %></div>

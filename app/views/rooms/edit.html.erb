@@ -1,0 +1,24 @@
+<% if logged_in? %>
+<div class="row">
+  <aside id="col-md-4" style="width:33.3%;float:left;">
+  	<!--
+    <section class="user_info">
+      <h1>
+        <%#= gravatar_for @user %>
+        <%#= @user.name %>
+      </h1>
+    </section>
+-->
+    <section class="room_form">
+        <%= render 'shared/room_form' %>     
+    </section>  	
+  </aside>
+  <div class="col-md-8" style="width:66.7%;float:right;">
+    <h3>Meine Räume <span>( <%= pluralize(current_user.rooms.count,'') %>)</span></h3>
+    <ol class="rooms">
+    	<%= render @feed_items %>
+    </ol>
+  </div>
+</div>
+<% end %>
+

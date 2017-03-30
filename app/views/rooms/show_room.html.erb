@@ -1,0 +1,145 @@
+<div id="row">
+  <aside id="col-md-4">
+    <section id="room_info">
+      <h1>
+        <%= @room.name %> <% if @room.anbieter %>(<%= @room.anbieter %>)<% end %>        
+      </h1>
+      <div id="main_pic">
+      	<%= image_tag(@room.picture) if @room.picture.size != 0 %>
+      </div>
+      <p class="room_address">
+        <%= @room.strasse %> <%= @room.nummer %>, <%= @room.plz %> <%= @room.ort %>
+        <% unless @room.weblink == nil or @room.weblink == "" %>&nbsp;&nbsp;&nbsp;&rarr; <%= link_to 'Homepage', @room.weblink, :target => '_blank' %><% end %>
+        <% unless @room.mrbs_link == nil or @room.mrbs_link == "" %>&nbsp;&nbsp;&nbsp;&rarr; <%= link_to 'Belegungskalender', @room.mrbs_link, :target => '_blank' %><% end %>
+      </p>
+      <p class="room_contact gruen fett">
+        Kontakt: <%= @room.kontakt_name %>, <%= @room.kontakt_telefon %>, <%= @room.kontakt_email %>
+      </p>
+      <p><%= @room.groesse %> m², bis zu <%= @room.pers_anzahl %> Personen, Preis: <%= @room.preis %></p>
+      <p>
+      	<span class="fett">Beschreibung:</span> 
+      	<%= @room.beschreibung %>
+      </p>
+
+      <p class="fett">Weitere Infos:</p>
+
+<div class="container-fluid">
+
+<div class="row">
+
+<div class="col-md-4">
+
+<table class="room_desc_infos">
+      	<tr>
+      		<th colspan="3" style="width:30%;">Lage</th>
+      		<th colspan="3">Technik</th>
+      		<th colspan="3">Zielgruppe</th>      		
+      	</tr>
+      	<tr>
+      		<td>Eigener Eingang</td><td><% if @room.lage_eingang == true %>Ja<% else %>Nein<% end %></td><td class="platzhalter">&nbsp;</td>
+      		<td>Diskobeleuchtung</td><td><% if @room.technik_disko == true %>Ja<% else %>Nein<% end %></td><td class="platzhalter">&nbsp;</td>
+      		<td>Barrierefrei</td><td><% if @room.zielgruppe_barrierefrei == true %>Ja<% else %>Nein<% end %></td><td class="platzhalter">&nbsp;</td>
+      	</tr>	
+      	<tr>	
+      		<td>Garten- oder Park-Anbindung</td><td><% if @room.lage_garten == true %>Ja<% else %>Nein<% end %></td><td class="platzhalter">&nbsp;</td>
+      		<td>Mikrophon</td><td><% if @room.technik_mikro == true %>Ja<% else %>Nein<% end %></td><td class="platzhalter">&nbsp;</td>
+      		<td>Für Kinder geeignet</td><td><% if @room.zielgruppe_kinder == true %>Ja<% else %>Nein<% end %></td><td class="platzhalter">&nbsp;</td>
+      	</tr>	
+      	<tr>	
+      		<td>Gute MVV-Anbindung</td><td><% if @room.lage_mvv == true %>Ja<% else %>Nein<% end %></td><td class="platzhalter">&nbsp;</td>
+      		<td>Beamer</td><td><% if @room.technik_projektion == true %>Ja<% else %>Nein<% end %></td><td class="platzhalter">&nbsp;</td>
+      		<td>Party-tauglich</td><td><% if @room.zielgruppe_party == true %>Ja<% else %>Nein<% end %></td><td class="platzhalter">&nbsp;</td>      		
+      	</tr>
+      	<tr>     		
+      		<td>Gute Parkmöglichkeit</td><td><% if @room.lage_parkplatz == true %>Ja<% else %>Nein<% end %></td><td class="platzhalter">&nbsp;</td>
+  			<td>WLan</td><td><% if @room.technik_wlan == true %>Ja<% else %>Nein<% end %></td><td class="platzhalter">&nbsp;</td>
+      		<td>Seminar-geeignet</td><td><% if @room.zielgruppe_seminar == true %>Ja<% else %>Nein<% end %></td><td class="platzhalter">&nbsp;</td>
+      	</tr>
+		</table>
+      	
+      	
+ 		<table class="room_desc_infos">
+ 		<tr><td colspan="5">&nbsp;</tr>
+      	<tr>
+      		<th colspan="3">Verpflegung</th>
+      		<th colspan="2" class="spaceleft">Ausstattung</th>
+      	</tr>
+      	<tr>
+      		<td>Catering möglich</td><td><% if @room.verpflegung_catering == true %>Ja<% else %>Nein<% end %></td><td class="platzhalter">&nbsp;</td>
+      		<td class="spaceleft">Bühne</td><td><% if @room.ausstattung_buehne == true %>Ja<% else %>Nein<% end %></td>
+      	</tr>
+      	<tr>
+      		<td>Gastro-Betrieb nahebei</td><td><% if @room.verpflegung_gastro == true %>Ja<% else %>Nein<% end %></td><td class="platzhalter">&nbsp;</td>
+      		<td class="spaceleft">Abdunkelbar</td><td><% if @room.ausstattung_dunkel == true %>Ja<% else %>Nein<% end %></td>
+      	</tr>
+      	<tr>
+      		<td>Selbstverpflegung möglich</td><td><% if @room.verpflegung_selbst == true %>Ja<% else %>Nein<% end %></td><td class="platzhalter">&nbsp;</td>
+      		<td class="spaceleft">Mit Klavier oder Keyboard</td><td><% if @room.ausstattung_klavier == true %>Ja<% else %>Nein<% end %></td>
+      	</tr>
+      	<tr>
+      		<td>Teeküche vorhanden</td><td><% if @room.verpflegung_teekueche == true %>Ja<% else %>Nein<% end %></td><td class="platzhalter">&nbsp;</td>
+      		<td class="spaceleft">Anzahl Tische/Stühle</td>
+      		<td><% if @room.anzahl_tische || @room.anzahl_stuehle %>
+      				<%= @room.anzahl_tische %> / <%= @room.anzahl_stuehle %>
+      				<% if @room.moebel_entfernbar == true %>(entfernbar)<% else %>(nicht entfernbar)<% end %>
+      				<% else %>0 / 0<% end %>
+      		</td>
+      	</tr>
+		</table>
+</div>      	
+      	<table class="room_anm_infos">
+      	<% if @room.anm_lage || @room.anm_technik || @room.anm_zielgruppe || @room.anm_ausstattung || @room.anm_verpflegung %>
+      	<tr><td colspan="2">&nbsp;</tr>
+      		<tr><th colspan="2">Anmerkung</th></tr>
+      	<% end %>
+      		
+      	<% if @room.anm_lage %><tr><td>Lage:</td><td class="longtext"><%= @room.anm_lage %></td></tr><% end %>
+      	<% if @room.anm_technik %><tr><td>Technik:</td><td class="longtext"><%= @room.anm_technik %></td></tr><% end %>
+      	<% if @room.anm_zielgruppe %><tr><td>Zielgruppe:</td><td class="longtext"><%= @room.anm_zielgruppe %></td></tr><% end %>
+      	<% if @room.anm_ausstattung %><tr><td>Ausstattung:</td><td class="longtext"><%= @room.anm_ausstattung %></td></tr><% end %>
+      	<% if @room.anm_verpflegung %><tr><td>Verpflegung:</td><td class="longtext"><%= @room.anm_verpflegung %></td></tr><% end %>
+		<% if @room.anm_dokumente %><tr><td>Dokumente:</td><td class="longtext"><%= @room.anm_dokumente %></td></tr><% end %>
+		<% if @room.anm_bilder %><tr><td>Bilder:</td><td class="longtext"><%= @room.anm_bilder %></td></tr><% end %>   
+
+		<tr><td colspan="2">&nbsp;</tr>
+		<tr>
+			<td><b>Dokumente / Nutzungsverträge:</b></td>
+			<td><% unless @room.nutzungsvertrag == "" or @room.nutzungsvertrag == nil %><%= link_to "Nutzungsvertrag (pdf, download)", @room.nutzungsvertrag if @room.nutzungsvertrag =~ /pdf/ %><% else %>noch nicht vorhanden<% end %></td>
+		</tr>
+		</table>
+
+
+
+
+
+</div>
+</div>
+
+    
+      
+    <% if @room.picture2.size != 0 || @room.picture3.size != 0 || @room.picture4.size != 0 %>
+      <h3>Weitere Bilder</h3>
+      <div id="room_pics">
+       <%= image_tag(@room.picture2) if @room.picture2.size != 0 %>
+       <%= image_tag(@room.picture3) if @room.picture3.size != 0 %>
+       <%= image_tag(@room.picture4) if @room.picture4.size != 0 %>
+      </div>
+    <% end %>
+      
+ 
+
+    </section>
+  </aside>
+</div>
+
+<!--
+
+
+      t.string :bestuhlungsplan
+      t.string :grundriss
+      
+      t.text   :anm_dokumente
+      
+      t.string :picture
+      t.text   :anm_bilder
+-->

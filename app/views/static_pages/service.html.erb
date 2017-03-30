@@ -1,0 +1,9 @@
+<% provide(:title, "Service") %>
+<h1>Service</h1>
+
+<h2>Formulare / Preise</h2>
+
+<ul>
+<li> Muster Nutzungsvertrag, <%= link_to "pdf", "uploads/Muster-Nutzungsvertrag.pdf" %> (<%= File.stat( "public/uploads/Muster-Nutzungsvertrag.pdf" ).size / 1000 %> kb)</li>
+<li> Muster Allgemeine Nutzungsbedingungen, <a href="uploads/Muster-Allgem-Nutzungsbedingen.pdf">pdf</a></li>
+</ul>

@@ -1,0 +1,21 @@
+<% provide(:title, "Raumsuche") %>
+
+<%= form_tag do %>
+
+<p>
+Geben Sie nur Auswahlkriterien mit erster Priorität an—in den Ergebnissen finden Sie dann sämtliche Details.
+</p>
+
+<p>
+Raumgröße (qm)
+</p>
+
+<%= select_tag(:groesse, options_for_select( [
+['5–50', 1],
+['50–100', 2],
+] )) %>
+
+<%= submit_tag( 'Suchen' ) %>
+
+<% end %>
+

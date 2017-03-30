@@ -1,0 +1,286 @@
+<%= form_for(@room, html: { multipart: true }) do |f| %>
+  <%= render 'shared/error_messages', object: f.object %>
+
+<% if @room.name %>
+	<h2><%= @room.name %> editieren</h2>
+<% else %>
+	<h2>Neuen Raum erstellen</h2>
+<% end %>
+
+
+  <div class="subheader">Raumname</div>
+  <div class="field">
+    <%= f.text_field :name, placeholder: 'Raumname' %>
+  </div>
+
+<div style="float:left;">
+  <div class="subheader">Strasse</div>
+  <div class="field">
+    <%= f.text_field :strasse, placeholder: 'Strasse' %>
+  </div>
+</div>
+<div style="float:right;">
+  <div class="subheader">Nummer</div>
+  <div class="field">
+    <%= f.text_field :nummer, placeholder: 'Nummer' %>
+  </div>
+</div>
+
+<div style="float:left;">
+  <div class="subheader">PLZ</div>
+  <div class="field">
+    <%= f.text_field :plz, placeholder: 'PLZ' %>
+  </div>
+</div>
+<div style="float:right;">
+  <div class="subheader">Ort</div>
+  <div class="field">
+    <%= f.text_field :ort, placeholder: 'Ort' %>
+  </div>
+</div>
+
+<div style="float:left;">
+  <div class="subheader">Grösse</div>
+  <div class="field">
+    <%= f.text_field :groesse, placeholder: 'Grösse (m²)' %>
+  </div>
+</div>
+<div style="float:right;">
+  <div class="subheader">Personenanzahl</div>
+  <div class="field">
+    <%= f.text_field :pers_anzahl, placeholder: 'Personenanzahl' %>
+  </div>
+</div>
+<div style="float:left;">
+	<div class="subheader">Anbieter</div>
+  	<div class="field">
+    	<%= f.text_field :anbieter, placeholder: 'Anbieter' %>
+  	</div>
+</div>
+<div style="float:right;">
+  <div class="subheader">Preis</div>
+  <div class="field">
+    <%= f.text_field :preis, placeholder: 'Preis' %>
+  </div>
+</div>
+
+<div style="clear:both;">
+  <div class="subheader">Ansprechperson</div>
+  <div class="field">
+    <%= f.text_field :kontakt_name, placeholder: 'Ansprechperson' %>
+  </div>
+</div>
+
+<div style="float:left;">
+  <div class="subheader">Email</div>
+  <div class="field">
+    <%= f.text_field :kontakt_email, placeholder: 'Email' %>
+  </div>
+</div>
+<div style="float:right;">
+  <div class="subheader">Telefon</div>
+  <div class="field">
+    <%= f.text_field :kontakt_telefon, placeholder: 'Telefon' %>
+  </div>
+</div>
+
+<div style="clear:both;">
+  <div class="subheader">Beschreibung</div>
+  <div class="field">
+    <%= f.text_area :beschreibung, placeholder: 'Fügen sie eine Beschreibung ihrem neuen Raum an.' %>
+  </div>
+</div>
+
+
+<h3>Bild hinzufügen</h3>
+  <span class="picture">
+    <%= f.file_field :picture, accept: 'image/jpeg,image/gif,image/png' %>
+  </span>
+
+
+<%= f.submit "Raum speichern", class: "btn btn-primary" %>
+
+<h2>Optionale Angaben</h2>
+
+<h3>Links</h3>
+
+  <div class="field">
+    <%= f.text_field :mrbs_link, placeholder: 'Link zum Raumbuchungssystem' %>
+  </div>
+
+  <div class="field">
+    <%= f.text_field :weblink, placeholder: 'Weblink' %>
+  </div>
+
+<h3>Lage</h3>
+
+  <div style="float:left;"><%= f.label :lage_eingang, 'Eigener Eingang' %></div>
+  <div style="float:right;"><%= f.check_box :lage_eingang %></div>
+  <div style="clear:both;"></div>
+
+  <div style="float:left;"><%= f.label :lage_garten, 'mit Zugang zu Garten oder Park' %></div>
+  <div style="float:right;"><%= f.check_box :lage_garten %></div>
+  <div style="clear:both;"></div>
+
+  <div style="float:left;"><%= f.label :lage_mvv, 'Öffentlich erreichbar' %></div>
+  <div style="float:right;"><%= f.check_box :lage_mvv %></div>
+  <div style="clear:both;"></div>
+
+  <div style="float:left;"><%= f.label :lage_parkplatz, 'Parkplatzfreundlich' %></div>
+  <div style="float:right;"><%= f.check_box :lage_parkplatz %></div>
+  <div style="clear:both;"></div>
+
+  <div class="field">
+    Anmerkung: <%= f.text_area :anm_lage, placeholder: 'Anmerkung zu Lage' %>
+  </div>
+
+<h3>Raumausstattung</h3>
+
+  <div style="float:left;"><%= f.label :ausstattung_dunkel, 'Abdunklung möglich' %></div>
+  <div style="float:right;"><%= f.check_box :ausstattung_dunkel %></div>
+  <div style="clear:both;"></div>
+
+  <div style="float:left;"><%= f.label :ausstattung_buehne, 'mit Bühne' %></div>
+  <div style="float:right;"><%= f.check_box :ausstattung_buehne %></div>
+  <div style="clear:both;"></div>
+
+  <div style="float:left;"><%= f.label :ausstattung_klavier, 'mit Klavier' %></div>
+  <div style="float:right;"><%= f.check_box :ausstattung_klavier %></div>
+  <div style="clear:both;"></div>
+
+  <div style="float:left;"><%= f.label :moebel_entfernbar, 'Stühle / Tische entfernbar' %></div>
+  <div style="float:right;"><%= f.check_box :moebel_entfernbar %></div>
+  <div style="clear:both;"></div>
+
+  <div class="field">
+  	<%= f.label :anzahl_stuehle, 'Anzahl Stühle' %>
+  	<%= f.text_field :anzahl_stuehle %>
+  	<%= f.label :anzahl_tische, 'Anzahl Tische' %>
+  	<%= f.text_field :anzahl_tische %>
+  </div>
+
+  <div class="field">
+    Anmerkung: <%= f.text_area :anm_ausstattung, placeholder: 'Anmerkung zu Raumausstattung' %>
+  </div>
+
+<h3>Technische Ausstattung</h3>
+
+  <div style="float:left;"><%= f.label :technik_disko, 'mit Diskoanlage' %></div>
+  <div style="float:right;"><%= f.check_box :technik_disko %></div>
+  <div style="clear:both;"></div>
+
+  <div style="float:left;"><%= f.label :technik_mikro, 'Mikrofon verfügbar' %></div>
+  <div style="float:right;"><%= f.check_box :technik_mikro %></div>
+  <div style="clear:both;"></div>
+
+  <div style="float:left;"><%= f.label :technik_projektion, 'mit Projektionsmöglichkeit / Beamer' %></div>
+  <div style="float:right;"><%= f.check_box :technik_projektion %></div>
+  <div style="clear:both;"></div>
+
+  <div style="float:left;"><%= f.label :technik_wlan, 'Wlan verfügbar' %></div>
+  <div style="float:right;"><%= f.check_box :technik_wlan %></div>
+  <div style="clear:both;"></div>
+
+  <div class="field">
+    Anmerkung: <%= f.text_area :anm_technik, placeholder: 'Anmerkung zu technischer Ausstattung' %>
+  </div>
+
+<h3>Versorgungsmöglichkeiten</h3>
+
+  <div style="float:left;"><%= f.label :verpflegung_catering, 'Catering verfügbar' %></div>
+  <div style="float:right;"><%= f.check_box :verpflegung_catering %></div>
+  <div style="clear:both;"></div>  
+
+  <div style="float:left;"><%= f.label :verpflegung_gastro, 'Gastronomie in der Nähe' %></div>
+  <div style="float:right;"><%= f.check_box :verpflegung_gastro %></div>
+  <div style="clear:both;"></div>
+
+  <div style="float:left;"><%= f.label :verpflegung_selbst, 'Selbstverpflegung (Küche)' %></div>
+  <div style="float:right;"><%= f.check_box :verpflegung_selbst %></div>
+  <div style="clear:both;"></div>
+
+  <div style="float:left;"><%= f.label :verpflegung_teekueche, 'mit Teeküche' %></div>
+  <div style="float:right;"><%= f.check_box :verpflegung_teekueche %></div>
+  <div style="clear:both;"></div>
+
+  <div class="field">
+    Anmerkung: <%= f.text_area :anm_verpflegung, placeholder: 'Anmerkung zu Versorgungsmöglichkeiten' %>
+  </div>
+
+<h3>Zielgruppe</h3>
+
+  <div style="float:left;"><%= f.label :zielgruppe_barrierefrei, 'Barrierefrei' %></div>
+  <div style="float:right;"><%= f.check_box :zielgruppe_barrierefrei %></div>
+  <div style="clear:both;"></div>
+
+  <div style="float:left;"><%= f.label :zielgruppe_kinder, 'Kinderfreundlich' %></div>
+  <div style="float:right;"><%= f.check_box :zielgruppe_kinder %></div>
+  <div style="clear:both;"></div>
+
+  <div style="float:left;"><%= f.label :zielgruppe_party, 'Partytauglich' %></div>
+  <div style="float:right;"><%= f.check_box :zielgruppe_party %></div>
+  <div style="clear:both;"></div>
+
+  <div style="float:left;"><%= f.label :zielgruppe_seminar, 'Seminargeeignet' %></div>
+  <div style="float:right;"><%= f.check_box :zielgruppe_seminar %></div>
+  <div style="clear:both;"></div>
+
+  <div class="field">
+    Anmerkung: <%= f.text_area :anm_zielgruppe, placeholder: 'Anmerkung zu Zielgruppe' %>
+  </div>
+
+<h3>Dokumente / Pläne</h3>
+
+  <div class="field">
+    <%= f.text_field :bestuhlungsplan, placeholder: 'Bestuhlungsplan' %>
+  </div>
+
+  <div class="field">
+    <%= f.text_field :grundriss, placeholder: 'Grundriss' %>
+  </div> 
+ 
+  <div class="field">
+    <%= f.text_field :nutzungsvertrag, placeholder: 'Nutzungsvertrag' %>
+  </div>
+
+  <div class="field">
+    <%= f.text_area :anm_dokumente, placeholder: 'Anmerkung zu Dokumenten' %>
+  </div>
+
+<h3>Weitere Bilder hinzufügen</h3>
+
+
+  <div class="subheader">Bild 2</div>
+  <span class="picture">
+    <%= f.file_field :picture2, accept: 'image/jpeg,image/gif,image/png' %>
+  </span>
+
+  <div class="subheader">Bild 3</div>
+  <span class="picture">
+    <%= f.file_field :picture3, accept: 'image/jpeg,image/gif,image/png' %>
+  </span>
+
+  <div class="subheader">Bild 4</div>
+  <span class="picture">
+    <%= f.file_field :picture4, accept: 'image/jpeg,image/gif,image/png' %>
+  </span>
+
+  <div class="field">
+    <%= f.text_area :anm_bilder, placeholder: 'Anmerkung zu Bildern' %>
+  </div>
+
+
+
+  <%= f.submit "Raum speichern", class: "btn btn-primary" %>
+
+<% end %>
+
+<script type="text/javascript">
+  $('#room_picture').bind('change', function() {
+    size_in_megabytes = this.files[0].size/1024/1024;
+    if (size_in_megabytes > 5) {
+      alert('Die maximale Dateigrösse beträgt 5 MB. Wählen sie bitte eine kleinere Datei.');
+    }
+  });
+</script>
+
