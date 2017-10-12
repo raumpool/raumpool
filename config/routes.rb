@@ -8,7 +8,9 @@ Rails.application.routes.draw do
 
   root             'static_pages#home'
   get 'faq'        => 'static_pages#faq'
+  get 'kontakt'  => 'static_pages#kontakt'
   get 'impressum'  => 'static_pages#impressum'
+  get 'formulare'  => 'static_pages#formulare'
   get 'service'    => 'static_pages#service'
   get 'raumpool'    => 'static_pages#raumpool'
   get 'signup'     => 'users#new'

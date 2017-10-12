@@ -22,8 +22,8 @@ ActiveRecord::Schema.define(version: 20161129101932) do
     t.string   "ort",                     limit: 255,   default: "München"
     t.integer  "groesse",                 limit: 4
     t.integer  "pers_anzahl",             limit: 4,     default: 10
-    t.string   "preis",                   limit: 255
     t.string   "anbieter",                limit: 255
+    t.string   "preis",                   limit: 255
     t.string   "kontakt_name",            limit: 255
     t.string   "kontakt_email",           limit: 255
     t.string   "kontakt_telefon",         limit: 255

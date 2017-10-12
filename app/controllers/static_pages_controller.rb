@@ -9,13 +9,16 @@ class StaticPagesController < ApplicationController
   def faq
   end
 
+  def formulare
+  end
+  
+  def kontakt
+  end
+  
   def impressum
   end
 
   def service
-  end
-
-  def kontakt
   end
 
   def raumpool
