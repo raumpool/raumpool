@@ -21,7 +21,7 @@
     <% end %>
 
     <p>Passwort vergessen? <%= link_to 'Hier können Sie ein neues Passwort anfordern.', new_password_reset_path %></br>
-    Neuer Benutzer? <%= mail_to 'Eine Email an info@raumpool-messestadt.de schicken.', info@raumpool-messestadt.de %>
+    Neuer Benutzer? <%= mail_to "info@raumpool-messestadt.de", "Eine Email an info@raumpool-messestadt.de schicken." %>
     <%# Neuer Benutzer? <%= link_to 'Hier können Sie sich registrieren.', signup_path %>
     </p>
   </div>
