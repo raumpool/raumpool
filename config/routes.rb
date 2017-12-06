@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   get 'kontakt'  => 'static_pages#kontakt'
   get 'impressum'  => 'static_pages#impressum'
   get 'formulare'  => 'static_pages#formulare'
+  get 'netzwerk'  => 'static_pages#netzwerk'  
   get 'service'    => 'static_pages#service'
   get 'raumpool'    => 'static_pages#raumpool'
   get 'signup'     => 'users#new'

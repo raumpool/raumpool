@@ -18,6 +18,9 @@ class StaticPagesController < ApplicationController
   def impressum
   end
 
+  def netzwerk
+  end  
+  
   def service
   end
 
